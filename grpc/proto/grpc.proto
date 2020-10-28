@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "github.com/sycki/examples/grpc";
+
+// 定义一个RPC Server
+// 包含两个函数可供Client调用
+service Greeter {
+  rpc AddUser (UserRequest) returns (UserResponse);
+  rpc GetUser (UserRequest) returns (UserResponse);
+}
+// 调用时的数据格式
+message UserRequest {
+	string Name = 1;
+	int32 age = 2;
+	string address = 3;
+}
+// 返回值的数据格式
+message UserResponse {
+	string Name = 1;
+	int32 age = 2;
+	string address = 3;
+}
